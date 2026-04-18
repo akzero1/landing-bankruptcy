@@ -234,7 +234,8 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .team-card{display:flex;gap:1.25rem;padding:1.5rem;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border);transition:all var(--tr)}
 .team-card:hover{transform:translateY(-3px);border-color:hsla(42,54%,58%,0.4);box-shadow:var(--shadow-lg)}
-.team-avatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:1.35rem;letter-spacing:0.02em}
+.team-avatar{position:relative;width:64px;height:64px;min-width:64px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:1.35rem;letter-spacing:0.02em;overflow:hidden}
+.team-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(0.1) contrast(1.05)}
 .team-body{flex:1;min-width:0}
 .team-body h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;line-height:1.2}
 .team-role{color:var(--gold);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:0.7rem;font-weight:500}
@@ -254,6 +255,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .test-avatar{width:44px;height:44px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:1rem;flex-shrink:0}
 .test-name{font-size:0.92rem;font-weight:500;color:var(--text)}
 .test-info{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
+.test-hint{display:none}
 
 /* FAQ */
 .faq-list{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem}
@@ -322,7 +324,13 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .nav-links,.nav-phone{display:none}
 .burger{display:flex}
 .mobile-menu{display:flex}
-.cases-grid,.adv-grid,.test-grid,.team-grid,.process-steps,.form-row,.quiz-options,.quiz-form,.result-facts{grid-template-columns:1fr}
+.cases-grid,.adv-grid,.team-grid,.process-steps,.form-row,.quiz-options,.quiz-form,.result-facts{grid-template-columns:1fr}
+.test-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding:0.5rem 0 1.5rem;margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.test-grid::-webkit-scrollbar{display:none}
+.test-card{min-width:85%;scroll-snap-align:center;flex-shrink:0}
+.test-hint{display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.78rem;color:var(--text-muted);margin-top:0.25rem;letter-spacing:0.05em}
+.test-hint span{display:inline-block;animation:hintSwipe 1.8s ease-in-out infinite}
+@keyframes hintSwipe{0%,100%{transform:translateX(0);opacity:0.6}50%{transform:translateX(6px);opacity:1}}
 .footer-top{grid-template-columns:1fr}
 .hero{padding-top:calc(var(--nav-h) + 2rem)}
 .section{padding:4rem 0}
@@ -634,7 +642,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 <div class="team-grid">
 <article class="team-card reveal">
-<div class="team-avatar">ЕВ</div>
+<div class="team-avatar">ЕВ<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
 <div class="team-body">
 <h3>Елена Воронцова</h3>
 <div class="team-role">Управляющий партнёр</div>
@@ -647,7 +655,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 </article>
 <article class="team-card reveal">
-<div class="team-avatar">ДС</div>
+<div class="team-avatar">ДС<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
 <div class="team-body">
 <h3>Дмитрий Северов</h3>
 <div class="team-role">Старший юрист</div>
@@ -660,7 +668,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 </article>
 <article class="team-card reveal">
-<div class="team-avatar">МК</div>
+<div class="team-avatar">МК<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
 <div class="team-body">
 <h3>Мария Климова</h3>
 <div class="team-role">Финансовый управляющий</div>
@@ -710,6 +718,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 </article>
 </div>
+<div class="test-hint">свайпните <span>→</span></div>
 </div>
 </section>
 
