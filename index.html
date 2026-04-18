@@ -336,6 +336,45 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .stat-value{font-size:1.55rem}
 .contact-form{padding:1.5rem}
 }
+
+/* CHAT WIDGET */
+.chat-widget{position:fixed;right:1.5rem;bottom:1.5rem;z-index:9000;font-family:var(--font-sans)}
+.chat-btn{position:relative;width:62px;height:62px;border-radius:50%;background:var(--grad-gold);border:none;cursor:pointer;box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 0 hsla(42,54%,58%,0.5);display:flex;align-items:center;justify-content:center;color:#1a1410;transition:transform 0.3s var(--ease);animation:chatPulse 2.4s ease-out infinite}
+.chat-btn:hover{transform:scale(1.08)}
+.chat-btn svg{width:28px;height:28px;stroke:#1a1410;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.chat-btn .online-dot{position:absolute;top:6px;right:6px;width:12px;height:12px;border-radius:50%;background:#3ecf8e;border:2px solid var(--bg-deep);box-shadow:0 0 0 0 rgba(62,207,142,0.6);animation:onlinePulse 1.8s ease-out infinite}
+@keyframes chatPulse{0%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 0 hsla(42,54%,58%,0.45)}70%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 18px hsla(42,54%,58%,0)}100%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 0 hsla(42,54%,58%,0)}}
+@keyframes onlinePulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,0.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.chat-greeting{position:absolute;right:78px;bottom:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px 16px 4px 16px;padding:0.85rem 1rem;max-width:250px;font-size:0.86rem;color:var(--text-soft);line-height:1.45;box-shadow:var(--shadow-lg);opacity:0;transform:translateX(8px) scale(0.95);pointer-events:none;transition:all 0.4s var(--ease)}
+.chat-greeting.show{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
+.chat-greeting::after{content:'';position:absolute;right:-6px;bottom:14px;width:12px;height:12px;background:var(--bg-card);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(-45deg)}
+.chat-greeting-close{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--bg-deep);border:1px solid var(--border);color:var(--text-muted);font-size:0.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.chat-greeting-close:hover{color:var(--text);border-color:var(--gold)}
+.chat-panel{position:absolute;right:0;bottom:78px;width:340px;max-width:calc(100vw - 3rem);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;opacity:0;transform:translateY(10px) scale(0.97);pointer-events:none;transition:all 0.3s var(--ease);transform-origin:bottom right}
+.chat-panel.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.chat-header{background:linear-gradient(135deg,hsla(42,54%,58%,0.12),hsla(230,35%,10%,0.4));padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem}
+.chat-header-avatar{width:40px;height:40px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.95rem;flex-shrink:0;position:relative}
+.chat-header-avatar::after{content:'';position:absolute;bottom:0;right:0;width:10px;height:10px;background:#3ecf8e;border-radius:50%;border:2px solid var(--bg-card)}
+.chat-header-info{flex:1;min-width:0}
+.chat-header-name{font-size:0.92rem;font-weight:500;color:var(--text)}
+.chat-header-status{font-size:0.72rem;color:var(--text-muted);margin-top:1px}
+.chat-close{background:transparent;border:none;color:var(--text-muted);cursor:pointer;padding:0.25rem;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all var(--tr)}
+.chat-close:hover{color:var(--text);background:var(--bg-deep)}
+.chat-close svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
+.chat-body{padding:1.25rem;max-height:320px;overflow-y:auto}
+.chat-msg{display:flex;gap:0.6rem;margin-bottom:0.9rem}
+.chat-msg-avatar{width:28px;height:28px;min-width:28px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.72rem}
+.chat-msg-text{background:var(--bg-deep);border:1px solid var(--border);border-radius:4px 14px 14px 14px;padding:0.7rem 0.9rem;font-size:0.85rem;color:var(--text-soft);line-height:1.5}
+.chat-replies{display:flex;flex-direction:column;gap:0.5rem;padding:0 1.25rem 1.25rem}
+.chat-reply{background:transparent;border:1px solid hsla(42,54%,58%,0.3);color:var(--text);border-radius:999px;padding:0.55rem 1rem;font-size:0.83rem;cursor:pointer;text-align:left;transition:all var(--tr);font-family:inherit;text-decoration:none;display:flex;align-items:center;gap:0.5rem}
+.chat-reply:hover{background:hsla(42,54%,58%,0.1);border-color:var(--gold);color:var(--gold);transform:translateX(2px)}
+.chat-reply svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0.7}
+@media(max-width:720px){
+.chat-widget{right:1rem;bottom:1rem}
+.chat-btn{width:56px;height:56px}
+.chat-greeting{max-width:220px;right:70px;font-size:0.82rem;padding:0.75rem 0.9rem}
+.chat-panel{width:calc(100vw - 2rem)}
+}
 </style>
 </head>
 <body>
@@ -1130,6 +1169,103 @@ mainSubmit.addEventListener('click', function(){
     }, 3500);
 });
 
+})();
+</script>
+
+<!-- CHAT WIDGET -->
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-greeting" id="chatGreeting">
+    <button class="chat-greeting-close" id="chatGreetingClose" aria-label="Закрыть">×</button>
+    Здравствуйте! Подскажите вашу ситуацию — отвечу за минуту и скажу, подходит ли банкротство.
+  </div>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Онлайн-консультант">
+    <div class="chat-header">
+      <div class="chat-header-avatar">ЕВ</div>
+      <div class="chat-header-info">
+        <div class="chat-header-name">Елена, юрист</div>
+        <div class="chat-header-status">Онлайн · отвечает за минуту</div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Закрыть чат">
+        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-msg">
+        <div class="chat-msg-avatar">ЕВ</div>
+        <div class="chat-msg-text">Здравствуйте! Я помогу разобраться с долгами. Выберите, с чего начнём — или напишите свой вопрос.</div>
+      </div>
+    </div>
+    <div class="chat-replies">
+      <a href="#quiz" class="chat-reply" data-chat-action="close">
+        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Пройти тест — подходит ли мне банкротство
+      </a>
+      <a href="#contact" class="chat-reply" data-chat-action="close">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/></svg>
+        Оставить заявку на расчёт
+      </a>
+      <a href="tel:+73420000000" class="chat-reply">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Позвонить сейчас
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var widget = document.getElementById('chatWidget');
+  var greeting = document.getElementById('chatGreeting');
+  var greetingClose = document.getElementById('chatGreetingClose');
+  var panel = document.getElementById('chatPanel');
+  var btn = document.createElement('button');
+  btn.className = 'chat-btn';
+  btn.setAttribute('aria-label','Открыть чат');
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="online-dot"></span>';
+  widget.appendChild(btn);
+  var closeBtn = document.getElementById('chatClose');
+
+  var greetingShown = false;
+  var greetingDismissed = false;
+  function showGreeting(){
+    if(greetingShown || greetingDismissed || panel.classList.contains('show')) return;
+    greeting.classList.add('show');
+    greetingShown = true;
+    setTimeout(function(){ if(!panel.classList.contains('show')) greeting.classList.remove('show'); }, 12000);
+  }
+  setTimeout(showGreeting, 6000);
+
+  greetingClose.addEventListener('click', function(e){
+    e.stopPropagation();
+    greeting.classList.remove('show');
+    greetingDismissed = true;
+  });
+
+  function openPanel(){
+    panel.classList.add('show');
+    greeting.classList.remove('show');
+    btn.style.transform = 'scale(0.92)';
+  }
+  function closePanel(){
+    panel.classList.remove('show');
+    btn.style.transform = '';
+  }
+  btn.addEventListener('click', function(){
+    if(panel.classList.contains('show')) closePanel(); else openPanel();
+  });
+  greeting.addEventListener('click', function(e){
+    if(e.target === greetingClose) return;
+    openPanel();
+  });
+  closeBtn.addEventListener('click', closePanel);
+
+  document.querySelectorAll('[data-chat-action="close"]').forEach(function(el){
+    el.addEventListener('click', function(){ setTimeout(closePanel, 150); });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && panel.classList.contains('show')) closePanel();
+  });
 })();
 </script>
 
