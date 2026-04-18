@@ -231,19 +231,16 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .adv-card p{font-size:0.92rem;color:var(--text-muted);line-height:1.65}
 
 /* TEAM */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.team-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:all var(--tr)}
-.team-card:hover{transform:translateY(-4px);border-color:hsla(42,54%,58%,0.4);box-shadow:var(--shadow-lg)}
-.team-photo{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--bg-deep)}
-.team-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.15) contrast(1.05);transition:transform 0.6s var(--ease)}
-.team-card:hover .team-photo img{transform:scale(1.04)}
-.team-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,hsla(230,35%,4%,0.75) 100%)}
-.team-body{padding:1.5rem 1.75rem 1.75rem}
-.team-body h3{font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:0.2rem}
-.team-role{color:var(--gold);font-size:0.82rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem;font-weight:500}
-.team-bio{font-size:0.9rem;color:var(--text-muted);line-height:1.65;margin-bottom:1rem}
-.team-creds{display:flex;gap:0.5rem;flex-wrap:wrap}
-.team-cred{font-size:0.72rem;padding:0.3rem 0.7rem;background:var(--bg-deep);border:1px solid var(--border);border-radius:999px;color:var(--text-soft)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.team-card{display:flex;gap:1.25rem;padding:1.5rem;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border);transition:all var(--tr)}
+.team-card:hover{transform:translateY(-3px);border-color:hsla(42,54%,58%,0.4);box-shadow:var(--shadow-lg)}
+.team-avatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:1.35rem;letter-spacing:0.02em}
+.team-body{flex:1;min-width:0}
+.team-body h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;line-height:1.2}
+.team-role{color:var(--gold);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:0.7rem;font-weight:500}
+.team-bio{font-size:0.85rem;color:var(--text-muted);line-height:1.55;margin-bottom:0.9rem}
+.team-creds{display:flex;gap:0.4rem;flex-wrap:wrap}
+.team-cred{font-size:0.68rem;padding:0.25rem 0.6rem;background:var(--bg-deep);border:1px solid var(--border);border-radius:999px;color:var(--text-soft)}
 
 /* TESTIMONIALS */
 .testimonials{background:var(--bg-deep);position:relative;overflow:hidden}
@@ -637,7 +634,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 <div class="team-grid">
 <article class="team-card reveal">
-<div class="team-photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="" loading="lazy"></div>
+<div class="team-avatar">ЕВ</div>
 <div class="team-body">
 <h3>Елена Воронцова</h3>
 <div class="team-role">Управляющий партнёр</div>
@@ -650,7 +647,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 </article>
 <article class="team-card reveal">
-<div class="team-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="" loading="lazy"></div>
+<div class="team-avatar">ДС</div>
 <div class="team-body">
 <h3>Дмитрий Северов</h3>
 <div class="team-role">Старший юрист</div>
@@ -663,7 +660,7 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 </div>
 </article>
 <article class="team-card reveal">
-<div class="team-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="" loading="lazy"></div>
+<div class="team-avatar">МК</div>
 <div class="team-body">
 <h3>Мария Климова</h3>
 <div class="team-role">Финансовый управляющий</div>
