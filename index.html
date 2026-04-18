@@ -345,16 +345,25 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .chat-btn .online-dot{position:absolute;top:6px;right:6px;width:12px;height:12px;border-radius:50%;background:#3ecf8e;border:2px solid var(--bg-deep);box-shadow:0 0 0 0 rgba(62,207,142,0.6);animation:onlinePulse 1.8s ease-out infinite}
 @keyframes chatPulse{0%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 0 hsla(42,54%,58%,0.45)}70%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 18px hsla(42,54%,58%,0)}100%{box-shadow:0 10px 30px hsla(42,54%,40%,0.35),0 0 0 0 hsla(42,54%,58%,0)}}
 @keyframes onlinePulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,0.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
-.chat-greeting{position:absolute;right:78px;bottom:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px 16px 4px 16px;padding:0.85rem 1rem;max-width:250px;font-size:0.86rem;color:var(--text-soft);line-height:1.45;box-shadow:var(--shadow-lg);opacity:0;transform:translateX(8px) scale(0.95);pointer-events:none;transition:all 0.4s var(--ease)}
-.chat-greeting.show{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
-.chat-greeting::after{content:'';position:absolute;right:-6px;bottom:14px;width:12px;height:12px;background:var(--bg-card);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(-45deg)}
-.chat-greeting-close{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--bg-deep);border:1px solid var(--border);color:var(--text-muted);font-size:0.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
-.chat-greeting-close:hover{color:var(--text);border-color:var(--gold)}
+.chat-greeting{position:absolute;right:0;bottom:78px;width:290px;max-width:calc(100vw - 3rem);background:var(--bg-card);border:1px solid hsla(42,54%,58%,0.2);border-radius:var(--radius-lg);padding:0.9rem;box-shadow:0 18px 50px -10px hsla(230,35%,2%,0.7),0 4px 16px hsla(230,35%,2%,0.4);opacity:0;transform:translateY(8px) scale(0.96);pointer-events:none;transition:all 0.35s var(--ease);backdrop-filter:blur(10px);cursor:pointer}
+.chat-greeting.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.chat-greeting:hover{border-color:hsla(42,54%,58%,0.4);transform:translateY(-2px)}
+.chat-greeting-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.6rem}
+.chat-greeting-avatar{position:relative;width:38px;height:38px;min-width:38px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.85rem;overflow:hidden}
+.chat-greeting-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.chat-greeting-avatar::after{content:'';position:absolute;bottom:-2px;right:-2px;width:11px;height:11px;background:#3ecf8e;border-radius:50%;border:2px solid var(--bg-card);z-index:2}
+.chat-greeting-meta{flex:1;min-width:0}
+.chat-greeting-name{font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.2}
+.chat-greeting-role{font-size:0.7rem;color:var(--gold);margin-top:2px;text-transform:uppercase;letter-spacing:0.1em}
+.chat-greeting-text{font-size:0.85rem;color:var(--text-soft);line-height:1.5;padding-right:1.5rem}
+.chat-greeting-close{position:absolute;top:0.5rem;right:0.5rem;width:22px;height:22px;border-radius:50%;background:transparent;border:none;color:var(--text-muted);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:all var(--tr)}
+.chat-greeting-close:hover{color:var(--text);background:var(--bg-deep)}
 .chat-panel{position:absolute;right:0;bottom:78px;width:340px;max-width:calc(100vw - 3rem);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;opacity:0;transform:translateY(10px) scale(0.97);pointer-events:none;transition:all 0.3s var(--ease);transform-origin:bottom right}
 .chat-panel.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
 .chat-header{background:linear-gradient(135deg,hsla(42,54%,58%,0.12),hsla(230,35%,10%,0.4));padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem}
-.chat-header-avatar{width:40px;height:40px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.95rem;flex-shrink:0;position:relative}
-.chat-header-avatar::after{content:'';position:absolute;bottom:0;right:0;width:10px;height:10px;background:#3ecf8e;border-radius:50%;border:2px solid var(--bg-card)}
+.chat-header-avatar{width:40px;height:40px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.95rem;flex-shrink:0;position:relative;overflow:hidden}
+.chat-header-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.chat-header-avatar::after{content:'';position:absolute;bottom:-1px;right:-1px;width:11px;height:11px;background:#3ecf8e;border-radius:50%;border:2px solid var(--bg-card);z-index:2}
 .chat-header-info{flex:1;min-width:0}
 .chat-header-name{font-size:0.92rem;font-weight:500;color:var(--text)}
 .chat-header-status{font-size:0.72rem;color:var(--text-muted);margin-top:1px}
@@ -363,7 +372,8 @@ h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em
 .chat-close svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
 .chat-body{padding:1.25rem;max-height:320px;overflow-y:auto}
 .chat-msg{display:flex;gap:0.6rem;margin-bottom:0.9rem}
-.chat-msg-avatar{width:28px;height:28px;min-width:28px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.72rem}
+.chat-msg-avatar{position:relative;width:30px;height:30px;min-width:30px;border-radius:50%;background:var(--grad-gold-soft);border:1px solid hsla(42,54%,58%,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;color:var(--gold);font-size:0.72rem;overflow:hidden}
+.chat-msg-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
 .chat-msg-text{background:var(--bg-deep);border:1px solid var(--border);border-radius:4px 14px 14px 14px;padding:0.7rem 0.9rem;font-size:0.85rem;color:var(--text-soft);line-height:1.5}
 .chat-replies{display:flex;flex-direction:column;gap:0.5rem;padding:0 1.25rem 1.25rem}
 .chat-reply{background:transparent;border:1px solid hsla(42,54%,58%,0.3);color:var(--text);border-radius:999px;padding:0.55rem 1rem;font-size:0.83rem;cursor:pointer;text-align:left;transition:all var(--tr);font-family:inherit;text-decoration:none;display:flex;align-items:center;gap:0.5rem}
@@ -1176,14 +1186,21 @@ mainSubmit.addEventListener('click', function(){
 <div class="chat-widget" id="chatWidget">
   <div class="chat-greeting" id="chatGreeting">
     <button class="chat-greeting-close" id="chatGreetingClose" aria-label="Закрыть">×</button>
-    Здравствуйте! Подскажите вашу ситуацию — отвечу за минуту и скажу, подходит ли банкротство.
+    <div class="chat-greeting-head">
+      <div class="chat-greeting-avatar">ЕВ<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="chat-greeting-meta">
+        <div class="chat-greeting-name">Елена Воронцова</div>
+        <div class="chat-greeting-role">юрист · онлайн</div>
+      </div>
+    </div>
+    <div class="chat-greeting-text">Здравствуйте! Подскажите вашу ситуацию — отвечу за минуту и скажу, подходит ли банкротство.</div>
   </div>
   <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Онлайн-консультант">
     <div class="chat-header">
-      <div class="chat-header-avatar">ЕВ</div>
+      <div class="chat-header-avatar">ЕВ<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
       <div class="chat-header-info">
-        <div class="chat-header-name">Елена, юрист</div>
-        <div class="chat-header-status">Онлайн · отвечает за минуту</div>
+        <div class="chat-header-name">Елена Воронцова</div>
+        <div class="chat-header-status">Юрист · отвечает за минуту</div>
       </div>
       <button class="chat-close" id="chatClose" aria-label="Закрыть чат">
         <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
@@ -1191,7 +1208,7 @@ mainSubmit.addEventListener('click', function(){
     </div>
     <div class="chat-body">
       <div class="chat-msg">
-        <div class="chat-msg-avatar">ЕВ</div>
+        <div class="chat-msg-avatar">ЕВ<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&q=80" alt="" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="chat-msg-text">Здравствуйте! Я помогу разобраться с долгами. Выберите, с чего начнём — или напишите свой вопрос.</div>
       </div>
     </div>
